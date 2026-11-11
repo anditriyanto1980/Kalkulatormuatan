@@ -1,0 +1,53 @@
+{
+  "entities": {
+    "Manifest": {
+      "title": "Manifest",
+      "description": "Logistics cargo loading plan and manifest document",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "manifestNumber": { "type": "string" },
+        "fleetId": { "type": "string" },
+        "fleetName": { "type": "string" },
+        "wheelsConfig": { "type": "string" },
+        "totalWeightKg": { "type": "number" },
+        "totalVolumeCbm": { "type": "number" },
+        "totalPieces": { "type": "number" },
+        "status": { "type": "string" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "userId": { "type": "string" }
+      },
+      "required": ["manifestNumber", "fleetId", "totalWeightKg", "totalVolumeCbm", "createdAt"]
+    },
+    "CustomFleet": {
+      "title": "CustomFleet",
+      "description": "Custom user-defined commercial transport vehicle",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "wheelsConfig": { "type": "string" },
+        "lengthCm": { "type": "number" },
+        "widthCm": { "type": "number" },
+        "heightCm": { "type": "number" },
+        "nominalCbm": { "type": "number" },
+        "maxWeightKg": { "type": "number" },
+        "popularUnits": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "userId": { "type": "string" }
+      },
+      "required": ["name", "lengthCm", "widthCm", "heightCm", "maxWeightKg", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/manifests/{manifestId}": {
+      "schema": "Manifest",
+      "description": "Collection of saved logistics cargo load manifests"
+    },
+    "/customFleets/{fleetId}": {
+      "schema": "CustomFleet",
+      "description": "Collection of user-defined custom transport vehicles"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper function for user auth
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Manifests collection: allow read and write
+    match /manifests/{manifestId} {
+      allow read: if true;
+      allow create: if true;
+      allow update, delete: if true;
+    }
+
+    // Custom fleets collection: allow read and write
+    match /customFleets/{fleetId} {
+      allow read: if true;
+      allow create: if true;
+      allow update, delete: if true;
+    }
+
+    // Connection testing endpoint
+    match /test/{docId} {
+      allow read, write: if true;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Kalkulator Muatan Armada Logistik (CBM & Tonase)",
+  "description": "Aplikasi penghitung kapasitas muatan kargo barang otomatis untuk berbagai jenis mobil angkutan dan truk logistik (Blind Van, Pick Up, CDE, CDD, Fuso, Tronton Wingbox) dengan kalkulasi CBM, tonase, dan deteksi ODOL.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
